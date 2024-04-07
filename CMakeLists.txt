@@ -2,21 +2,17 @@
 
 cmake_minimum_required(VERSION 3.13)
 
-set(CMAKE_C_STANDARD 11)
-set(CMAKE_CXX_STANDARD 17)
-
-# initalize pico_sdk from installed location
+# initialize pico-sdk from GIT
 # (note this can come from environment, CMake cache etc)
-# set(PICO_SDK_PATH "/home/mathew/src/pico/pico-sdk")
+set(PICO_SDK_FETCH_FROM_GIT on)
 
-# Pull in Raspberry Pi Pico SDK (must be before project)
+# pico_sdk_import.cmake is a single file copied from this SDK
+# note: this must happen before project()
 include(pico_sdk_import.cmake)
 
-project(Blink C CXX ASM)
+project(my_project)
 
-set(PICO_CXX_ENABLE_EXCEPTIONS 1)
-
-# Initialise the Raspberry Pi Pico SDK
+# initialize the Raspberry Pi Pico SDK
 pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
